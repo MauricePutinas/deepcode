@@ -1,0 +1,33 @@
+# dependencies & build output
+node_modules/
+out/
+dist/
+release/
+*.tsbuildinfo
+
+# logs (may contain prompts/responses from real runs — never commit)
+*.log
+
+# local data / secrets — NEVER commit
+.env
+.env.*
+data.db
+*.db
+*.sqlite
+*.sqlite3
+gh-device.json
+*.pem
+*.key
+
+# vendored binaries / portable tooling
+tools/
+*.exe
+
+# local-only artifacts
+portfolio-shots/
+.playwright-mcp/
+coverage/
+
+# OS cruft
+.DS_Store
+Thumbs.db
