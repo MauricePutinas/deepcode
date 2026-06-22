@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-421%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-432%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — Feature-Tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Persönliches Projekt, in aktiver Entwicklung. Modell-ID und Base-URL sind konfi
 
 ## Changelog
 
+- **v0.2.82** — **Exakte Kostenerfassung.** Die Kosten pro Turn nutzen jetzt den vom Anbieter gemeldeten Wert (DeepInfras `estimated_cost`), sodass die Anzeige der echten Rechnung entspricht — mit einer recherchierten Per-Modell-Preistabelle (inkl. cached-Input) als Fallback statt einer einzigen Pauschale für alle DeepInfra-Modelle. Liest zudem OpenAI-konforme Cache-Token, bepreist Gateway-Routen nach dem tatsächlichen Zielmodell und verrechnet unbekannte Modelle nicht mehr zu falschen Raten.
 - **v0.2.81** — **Hänger-sicheres Streaming + Live-Schrittansicht.** Der Modell-Stream hat jetzt Connect- und Idle-Timeouts: Wenn ein Anbieter stockt (lokales Modell lädt, Reasoner hängt, Gateway unter Last), bricht es mit klarer Meldung ab statt ewig zu hängen. Eine neue Aktivitäts-Anzeige im Stil von Claude Code/Codex zeigt den aktuellen Schritt, das laufende Tool und die verstrichene Zeit — plus ein „Zeit seit letzter Aktivität"-Heartbeat, der bei Stillstand auf eine Warnung umschaltet. So sehen *arbeitet* und *hängt* endlich unterschiedlich aus.
 - **v0.2.80** — **Chats in der Seitenleiste umbenennen.** Ein sichtbarer Stift-Button (neben dem Löschen) macht das bereits vorhandene Inline-Umbenennen (Doppelklick / F2) auffindbar; ein manuell gesetzter Titel ist jetzt vor dem automatischen Titel aus der ersten Nachricht geschützt.
 - **v0.2.79** — **Den laufenden Turn steuern.** Eine Nachricht, die du sendest, während der Agent arbeitet, wird jetzt in den *aktuellen* Turn am nächsten Schritt eingespeist — der Agent korrigiert sofort den Kurs, statt deine Eingabe bis zum Turn-Ende in die Warteschlange zu stellen.
