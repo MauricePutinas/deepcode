@@ -103,6 +103,7 @@ Personal project, actively developed. The model id and base URL are configurable
 
 ## Changelog
 
+- **v0.2.91** — **Robust chat-switching during a turn.** Switching into a chat whose turn was already running no longer loses the streamed reply (it now appears live and on completion instead of only after a reload). Backend session isolation was already safe — no data was ever corrupted. Also removed the deprecated Grok 4.1 model.
 - **v0.2.90** — **No more silent aborts.** When a gateway (e.g. OpenRouter) reports a provider error mid-stream, the turn now shows a clear error instead of ending with a blank bubble and no reason. Also surfaces content-filter stops and empty completions.
 - **v0.2.89** — **Off-peak banner only for DeepSeek.** The off-peak discount indicator now shows only for the first-party DeepSeek route — it no longer appears for DeepInfra / OpenRouter / MiMo models, which don't get that discount. (Cost was already calculated correctly; this fixes the misleading banner.)
 - **v0.2.88** — **Clear the current chat.** A 🧹 button empties the open chat's messages and tasks while keeping the session (title / model / working dir), behind a confirm. Refused mid-turn so it can't race a running turn.
