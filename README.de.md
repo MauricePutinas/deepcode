@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-448%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-450%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — Feature-Tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Persönliches Projekt, in aktiver Entwicklung. Modell-ID und Base-URL sind konfi
 
 ## Changelog
 
+- **v0.2.88** — **Aktuellen Chat leeren.** Ein 🧹-Knopf leert die Nachrichten und Aufgaben des offenen Chats, behält aber die Session (Titel / Modell / Arbeitsverzeichnis) — mit Sicherheitsabfrage. Während eines laufenden Turns abgelehnt, damit nichts kollidiert.
 - **v0.2.87** — **Aufgeräumte Modellauswahl.** Das Modell-Dropdown zeigt jetzt kuratierte, sortierte Anzeigenamen (z. B. „DI GLM 5.2", „OR Grok 4.3", „Lokal Qwen 2.5 uncensored") statt roher Slugs und unterscheidet dasselbe Modell über verschiedene Anbieter. Reine Anzeige — die gespeicherte Modell-ID bleibt unverändert.
 - **v0.2.86** — **Übersichtlicherer Verlauf.** Die automatischen Selbst-Review-/Verify-/Verdichtungs-Nachrichten des Agenten werden jetzt als gemutete, beschriftete Auto-Notizen angezeigt statt wie eine eigene Nutzernachricht (gehen weiterhin ans Modell). Uhrzeit unter jeder Nachricht ergänzt und eine fälschliche „Modell hängt evtl."-Warnung behoben, während tool-lastige Modelle ihre Tool-Argumente streamen.
 - **v0.2.85** — **Flaggschiff-Modelle über OpenRouter.** Grok 4.3, MiniMax M3 und Kimi K2.7 Code als Ready-Picks ergänzt — jeweils gegen die Live-OpenRouter-API verifiziert (exakter Slug, Kontextfenster, Preis, natives Tool-Calling).
