@@ -101,6 +101,16 @@ On first launch, open **Settings** and paste your DeepSeek API key + model (or p
 
 Personal project, actively developed. The model id and base URL are configurable, so any OpenAI-compatible "v4 PRO" / local / DeepInfra endpoint plugs in without code changes. UI strings are currently German.
 
+## Changelog
+
+- **v0.2.76** — The agent now **narrates its work** — a short preamble before each action and a takeaway after, like Claude Code / Codex.
+- **v0.2.72–0.2.75** — New model providers & ready-to-pick models: **Xiaomi MiMo** (`mimo:`) and the **Kilo Code gateway** (`kilo:`), plus **GLM-5.2** and **Gemma 4 31B** (DeepInfra) and **JetBrains Mellum 2** (local).
+- **v0.2.68** — Every **MCP call is abort- + timeout-bounded** — a hung connector can no longer freeze a turn (Stop interrupts instantly).
+- **v0.2.64–0.2.67** — CI hardened (**build + Playwright UI-smoke + ESLint**); the engine approval-gate and the DeepSeek client extracted and unit-tested.
+- **v0.2.60–0.2.63** — **Multi-session tabs** (horizontal scroll + drag-reorder), an expandable **per-span diff** in the Traces panel, a Time Machine state-reconstruction test, and a **renderer test foundation** (jsdom + Testing Library).
+
+<sub>Newest first · updated on each release.</sub>
+
 ## License
 
 [MIT](LICENSE) © Maurice
