@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-436%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-438%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — Feature-Tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Persönliches Projekt, in aktiver Entwicklung. Modell-ID und Base-URL sind konfi
 
 ## Changelog
 
+- **v0.2.84** — **OpenRouter-Kostengenauigkeit + Modellauswahl.** Per-Modell-Fallback-Raten für jeden OpenRouter-Pick, damit ein Turn nie fälschlich $0 zeigt, falls der Live-Kostenwert fehlt; `:free`-Routen werden als echt kostenlos behandelt. Gemini 2.5 Flash-Lite als Ready-Pick ergänzt; MiMo läuft jetzt ausschließlich über die günstigere OpenRouter-Route.
 - **v0.2.83** — **OpenRouter-Provider.** Ein neues `openrouter:`-Präfix routet zu OpenRouter (ein Key, hunderte Modelle). Die Kosten kommen aus OpenRouters eigenem gemeldeten Wert, stimmen also mit der echten Abrechnung überein. Mit Ready-to-Pick-Modellen — u. a. dasselbe MiMo deutlich günstiger über OpenRouter, dazu tool-fähige Picks wie GLM-4.7-Flash, DeepSeek-V4-Flash, Qwen3-Coder-Flash, Grok-4.1-Fast, gpt-oss-20b und das kostenlose gpt-oss-120b. Keys bleiben in der OS-verschlüsselten Konfiguration, nie im Quellcode.
 - **v0.2.82** — **Exakte Kostenerfassung.** Die Kosten pro Turn nutzen jetzt den vom Anbieter gemeldeten Wert (DeepInfras `estimated_cost`), sodass die Anzeige der echten Rechnung entspricht — mit einer recherchierten Per-Modell-Preistabelle (inkl. cached-Input) als Fallback statt einer einzigen Pauschale für alle DeepInfra-Modelle. Liest zudem OpenAI-konforme Cache-Token, bepreist Gateway-Routen nach dem tatsächlichen Zielmodell und verrechnet unbekannte Modelle nicht mehr zu falschen Raten.
 - **v0.2.81** — **Hänger-sicheres Streaming + Live-Schrittansicht.** Der Modell-Stream hat jetzt Connect- und Idle-Timeouts: Wenn ein Anbieter stockt (lokales Modell lädt, Reasoner hängt, Gateway unter Last), bricht es mit klarer Meldung ab statt ewig zu hängen. Eine neue Aktivitäts-Anzeige im Stil von Claude Code/Codex zeigt den aktuellen Schritt, das laufende Tool und die verstrichene Zeit — plus ein „Zeit seit letzter Aktivität"-Heartbeat, der bei Stillstand auf eine Warnung umschaltet. So sehen *arbeitet* und *hängt* endlich unterschiedlich aus.
