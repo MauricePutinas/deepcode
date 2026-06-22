@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-413%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-421%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — feature tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Personal project, actively developed. The model id and base URL are configurable
 
 ## Changelog
 
+- **v0.2.81** — **Hang-proof streaming + a live step view.** The model stream now has connect + idle timeouts, so a provider that stalls (local model loading, a stuck reasoner, a gateway under load) aborts with a clear message instead of hanging forever. A new Claude-Code/Codex-style activity feed shows the current step, tool and elapsed time, plus a "time since last activity" heartbeat that flips to a stall warning — so *working* and *hung* finally look different.
 - **v0.2.80** — **Rename chats from the sidebar.** A visible pencil button (next to delete) makes the existing double-click / F2 inline rename discoverable; a manually set title is now protected from the first-message auto-titling.
 - **v0.2.79** — **Steer the running turn.** A message you send while the agent is working is now injected into the *current* turn at its next step — the agent course-corrects immediately instead of queuing your input until the turn ends.
 - **v0.2.78** — Two more DeepInfra ready-picks: **Qwen3-Coder-480B** (agentic coding) and **Kimi K2.6** (agentic, native function-calling).
