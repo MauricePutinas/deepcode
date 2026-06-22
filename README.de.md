@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-453%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-457%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — Feature-Tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Persönliches Projekt, in aktiver Entwicklung. Modell-ID und Base-URL sind konfi
 
 ## Changelog
 
+- **v0.2.90** — **Keine stillen Abbrüche mehr.** Wenn ein Gateway (z. B. OpenRouter) mitten im Stream einen Provider-Fehler meldet, zeigt der Turn jetzt eine klare Fehlermeldung statt leer und ohne Grund zu enden. Auch Inhalts-Filter-Stopps und leere Antworten werden sichtbar gemacht.
 - **v0.2.89** — **Off-Peak-Banner nur bei DeepSeek.** Der Off-Peak-Rabatt-Hinweis erscheint jetzt nur noch für die First-Party-DeepSeek-Route — nicht mehr bei DeepInfra-/OpenRouter-/MiMo-Modellen, die diesen Rabatt gar nicht bekommen. (Die Kosten wurden bereits korrekt berechnet; das behebt den irreführenden Banner.)
 - **v0.2.88** — **Aktuellen Chat leeren.** Ein 🧹-Knopf leert die Nachrichten und Aufgaben des offenen Chats, behält aber die Session (Titel / Modell / Arbeitsverzeichnis) — mit Sicherheitsabfrage. Während eines laufenden Turns abgelehnt, damit nichts kollidiert.
 - **v0.2.87** — **Aufgeräumte Modellauswahl.** Das Modell-Dropdown zeigt jetzt kuratierte, sortierte Anzeigenamen (z. B. „DI GLM 5.2", „OR Grok 4.3", „Lokal Qwen 2.5 uncensored") statt roher Slugs und unterscheidet dasselbe Modell über verschiedene Anbieter. Reine Anzeige — die gespeicherte Modell-ID bleibt unverändert.

@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-453%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-457%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — feature tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Personal project, actively developed. The model id and base URL are configurable
 
 ## Changelog
 
+- **v0.2.90** — **No more silent aborts.** When a gateway (e.g. OpenRouter) reports a provider error mid-stream, the turn now shows a clear error instead of ending with a blank bubble and no reason. Also surfaces content-filter stops and empty completions.
 - **v0.2.89** — **Off-peak banner only for DeepSeek.** The off-peak discount indicator now shows only for the first-party DeepSeek route — it no longer appears for DeepInfra / OpenRouter / MiMo models, which don't get that discount. (Cost was already calculated correctly; this fixes the misleading banner.)
 - **v0.2.88** — **Clear the current chat.** A 🧹 button empties the open chat's messages and tasks while keeping the session (title / model / working dir), behind a confirm. Refused mid-turn so it can't race a running turn.
 - **v0.2.87** — **Tidy model picker.** The model dropdown now shows curated, ordered display names (e.g. "DI GLM 5.2", "OR Grok 4.3", "Lokal Qwen 2.5 uncensored") instead of raw slugs, disambiguating the same model across providers. Display-only — the stored model id is unchanged.
