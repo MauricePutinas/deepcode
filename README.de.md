@@ -103,6 +103,7 @@ Persönliches Projekt, in aktiver Entwicklung. Modell-ID und Base-URL sind konfi
 
 ## Changelog
 
+- **v0.2.77** — **Xiaomi MiMo** läuft jetzt standardmäßig über **DeepInfra** (`deepinfra:XiaomiMiMo/MiMo-V2.5-Pro`) — ein Key dafür; Xiaomis Gratis-Token-Plan bleibt als Alternative.
 - **v0.2.76** — Der Agent **kommentiert jetzt seine Arbeit** — ein kurzer Satz vor jeder Aktion und ein Fazit danach, wie Claude Code / Codex.
 - **v0.2.72–0.2.75** — Neue Modell-Provider & Ready-Picks: **Xiaomi MiMo** (`mimo:`) und das **Kilo-Code-Gateway** (`kilo:`), dazu **GLM-5.2** und **Gemma 4 31B** (DeepInfra) sowie **JetBrains Mellum 2** (lokal).
 - **v0.2.68** — Jeder **MCP-Aufruf ist abbruch- + timeout-gesichert** — ein hängender Connector friert keinen Turn mehr ein (Stop unterbricht sofort).

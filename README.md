@@ -103,6 +103,7 @@ Personal project, actively developed. The model id and base URL are configurable
 
 ## Changelog
 
+- **v0.2.77** — **Xiaomi MiMo** now routes through **DeepInfra** by default (`deepinfra:XiaomiMiMo/MiMo-V2.5-Pro`) — one key for it; Xiaomi's free token-plan route stays available.
 - **v0.2.76** — The agent now **narrates its work** — a short preamble before each action and a takeaway after, like Claude Code / Codex.
 - **v0.2.72–0.2.75** — New model providers & ready-to-pick models: **Xiaomi MiMo** (`mimo:`) and the **Kilo Code gateway** (`kilo:`), plus **GLM-5.2** and **Gemma 4 31B** (DeepInfra) and **JetBrains Mellum 2** (local).
 - **v0.2.68** — Every **MCP call is abort- + timeout-bounded** — a hung connector can no longer freeze a turn (Stop interrupts instantly).
