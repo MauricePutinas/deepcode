@@ -103,6 +103,7 @@ Persönliches Projekt, in aktiver Entwicklung. Modell-ID und Base-URL sind konfi
 
 ## Changelog
 
+- **v0.2.92** — **Kein Hängen mehr beim Vorschau-Schritt.** Der Agent nutzt jetzt DeepCodes eingebaute Live-Vorschau, statt einen externen Browser eine generierte Datei öffnen zu lassen (was bei einer lokalen `file://`-URL unbegrenzt blockieren konnte).
 - **v0.2.91** — **Robuster Chat-Wechsel während eines Turns.** Wechselt man in einen Chat, dessen Turn schon läuft, geht die gestreamte Antwort nicht mehr verloren (sie erscheint jetzt live und beim Abschluss, statt erst nach einem Reload). Die Session-Isolation im Backend war bereits sicher — es wurden nie Daten beschädigt. Außerdem das abgekündigte Grok-4.1-Modell entfernt.
 - **v0.2.90** — **Keine stillen Abbrüche mehr.** Wenn ein Gateway (z. B. OpenRouter) mitten im Stream einen Provider-Fehler meldet, zeigt der Turn jetzt eine klare Fehlermeldung statt leer und ohne Grund zu enden. Auch Inhalts-Filter-Stopps und leere Antworten werden sichtbar gemacht.
 - **v0.2.89** — **Off-Peak-Banner nur bei DeepSeek.** Der Off-Peak-Rabatt-Hinweis erscheint jetzt nur noch für die First-Party-DeepSeek-Route — nicht mehr bei DeepInfra-/OpenRouter-/MiMo-Modellen, die diesen Rabatt gar nicht bekommen. (Die Kosten wurden bereits korrekt berechnet; das behebt den irreführenden Banner.)
