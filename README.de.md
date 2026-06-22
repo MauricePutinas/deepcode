@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-460%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-467%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — Feature-Tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Persönliches Projekt, in aktiver Entwicklung. Modell-ID und Base-URL sind konfi
 
 ## Changelog
 
+- **v0.2.94** — **Große Dateien scheitern nicht mehr in einer Schleife.** Eine große Datei wurde bisher in EINEM `write_file` geschrieben, dessen Inhalt am Output-Token-Limit abgeschnitten wurde → „Invalid JSON arguments"-Endlosschleife. Der Agent bekommt jetzt (a) eine klare Meldung „du wurdest abgeschnitten — schreibe in kleineren Stücken" statt eines generischen Fehlers mit zurückgespiegeltem Inhalt, (b) kann Dateien inkrementell per `write_file` `mode:"append"` aufbauen und (c) wird vorab angewiesen, nie eine Riesendatei in einem Aufruf zu schicken. Außerdem werden gpt-oss-„Harmony"-Steuerzeichen entfernt, die Tool-Namen/Argumente zerstörten, Tool-Calls aus dem Text von Vision-Modellen gerettet und der Qwen3-VL-Eintrag als „(Vision)" gekennzeichnet, damit er nicht als Coder gewählt wird.
 - **v0.2.93** — **Abgeschnittene Antworten setzen automatisch fort + DeepSeek-Thinking-Tool-Loops.** Eine am Token-Limit abgeschnittene Antwort führt sich jetzt (begrenzt) selbst fort, statt mitten im Satz zu stoppen. Und die First-Party-DeepSeek-Route schickt ihr Reasoning bei Tool-Call-Turns zurück (von V3.2/V4-Thinking verlangt), eng gegated, sodass alle anderen Provider unverändert bleiben.
 - **v0.2.92** — **Kein Hängen mehr beim Vorschau-Schritt.** Der Agent nutzt jetzt DeepCodes eingebaute Live-Vorschau, statt einen externen Browser eine generierte Datei öffnen zu lassen (was bei einer lokalen `file://`-URL unbegrenzt blockieren konnte).
 - **v0.2.91** — **Robuster Chat-Wechsel während eines Turns.** Wechselt man in einen Chat, dessen Turn schon läuft, geht die gestreamte Antwort nicht mehr verloren (sie erscheint jetzt live und beim Abschluss, statt erst nach einem Reload). Die Session-Isolation im Backend war bereits sicher — es wurden nie Daten beschädigt. Außerdem das abgekündigte Grok-4.1-Modell entfernt.
