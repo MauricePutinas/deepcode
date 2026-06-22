@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-457%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-460%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — feature tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Personal project, actively developed. The model id and base URL are configurable
 
 ## Changelog
 
+- **v0.2.93** — **Truncated answers auto-continue + DeepSeek thinking-mode tool loops.** A reply cut off at the max-tokens limit now resumes itself (capped) instead of stopping mid-sentence. And the first-party DeepSeek route now replays its reasoning on tool-call turns (required by V3.2/V4 thinking-mode), tightly gated so every other provider is unchanged.
 - **v0.2.92** — **No more hanging on the preview step.** The agent is now told to use DeepCode's built-in live preview instead of driving an external browser to open a generated file (which could block indefinitely on a local `file://` URL).
 - **v0.2.91** — **Robust chat-switching during a turn.** Switching into a chat whose turn was already running no longer loses the streamed reply (it now appears live and on completion instead of only after a reload). Backend session isolation was already safe — no data was ever corrupted. Also removed the deprecated Grok 4.1 model.
 - **v0.2.90** — **No more silent aborts.** When a gateway (e.g. OpenRouter) reports a provider error mid-stream, the turn now shows a clear error instead of ending with a blank bubble and no reason. Also surfaces content-filter stops and empty completions.
