@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-438%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-439%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — feature tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Personal project, actively developed. The model id and base URL are configurable
 
 ## Changelog
 
+- **v0.2.85** — **Flagship models via OpenRouter.** Added Grok 4.3, MiniMax M3 and Kimi K2.7 Code as ready-picks — each verified against the live OpenRouter API (exact slug, context window, price, native tool-calling).
 - **v0.2.84** — **OpenRouter cost accuracy + model lineup.** Per-model fallback rates for every OpenRouter pick so a turn never shows a wrong $0 when the provider's live cost is absent, and `:free` routes are honored as truly free. Added Gemini 2.5 Flash-Lite as a ready-pick; routed MiMo exclusively through the cheaper OpenRouter path.
 - **v0.2.83** — **OpenRouter provider.** A new `openrouter:` prefix routes to OpenRouter (one key, hundreds of models). Cost is taken from OpenRouter's own reported figure so it matches the real bill. Ships ready-to-pick value models — incl. the same MiMo far cheaper via OpenRouter, plus tool-calling picks like GLM-4.7-Flash, DeepSeek-V4-Flash, Qwen3-Coder-Flash, Grok-4.1-Fast, gpt-oss-20b and the free gpt-oss-120b. Keys stay in OS-encrypted settings, never in source.
 - **v0.2.82** — **Accurate cost tracking.** Per-turn cost now trusts the provider's own reported cost (DeepInfra's `estimated_cost`) so the figure matches the real invoice, with a researched per-model rate table (incl. cached-input) as fallback — replacing a single flat guess that billed every DeepInfra model the same. Also reads OpenAI-style cached-token counts, prices gateway routes by their underlying model, and stops billing unknown models at the wrong rates.
