@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-394%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-406%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — Feature-Tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Persönliches Projekt, in aktiver Entwicklung. Modell-ID und Base-URL sind konfi
 
 ## Changelog
 
+- **v0.2.79** — **Den laufenden Turn steuern.** Eine Nachricht, die du sendest, während der Agent arbeitet, wird jetzt in den *aktuellen* Turn am nächsten Schritt eingespeist — der Agent korrigiert sofort den Kurs, statt deine Eingabe bis zum Turn-Ende in die Warteschlange zu stellen.
 - **v0.2.78** — Zwei weitere DeepInfra-Ready-Picks: **Qwen3-Coder-480B** (agentisches Coden) und **Kimi K2.6** (agentisch, Function-Calling).
 - **v0.2.77** — **Xiaomi MiMo** läuft jetzt standardmäßig über **DeepInfra** (`deepinfra:XiaomiMiMo/MiMo-V2.5-Pro`) — ein Key dafür; Xiaomis Gratis-Token-Plan bleibt als Alternative.
 - **v0.2.76** — Der Agent **kommentiert jetzt seine Arbeit** — ein kurzer Satz vor jeder Aktion und ein Fazit danach, wie Claude Code / Codex.
