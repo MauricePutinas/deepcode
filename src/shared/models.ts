@@ -11,6 +11,14 @@ const TABLE: ModelInfo[] = [
   { pattern: /deepseek/i, context: 64_000 }, // DeepSeek chat + reasoner: 64K
   { pattern: /qwen3-coder|qwen2\.5-coder/i, context: 256_000 },
   { pattern: /qwen|qwq/i, context: 32_000 },
+  { pattern: /mellum[-_\s]?2/i, context: 131_072 }, // JetBrains Mellum 2 (Thinking MoE): 128K
+  { pattern: /mellum/i, context: 8_192 }, // JetBrains Mellum 4b (code completion): 8K
+  { pattern: /mimo/i, context: 128_000 }, // Xiaomi MiMo v2/v2.5 (estimate; conservative for the pill)
+  { pattern: /glm[-_\s]?5/i, context: 1_000_000 }, // Z.ai GLM-5 / 5.1 / 5.2: up to 1M
+  { pattern: /glm[-_\s]?4\.6/i, context: 200_000 }, // GLM-4.6: 200K
+  { pattern: /glm/i, context: 128_000 }, // other GLM (4.5 etc.)
+  { pattern: /gemma[-_\s]?4/i, context: 262_144 }, // Google Gemma 4: 256K
+  { pattern: /gemma[-_\s]?3/i, context: 128_000 }, // Google Gemma 3: 128K
   { pattern: /llama3\.[12]|llama-3\.[12]/i, context: 128_000 },
   { pattern: /llama|mistral|mixtral|dolphin|gemma|phi/i, context: 32_000 },
   { pattern: /gpt-4o|gpt-4\.1|o[134]/i, context: 128_000 },
@@ -19,10 +27,27 @@ const TABLE: ModelInfo[] = [
 
 const DEFAULT_CONTEXT = 32_000
 
-// Best-effort context window for a model id. Strips the "local:" routing prefix.
+// Best-effort context window for a model id. Strips any routing prefix first so the underlying
+// model name is matched (e.g. `kilo:anthropic/claude-sonnet-4` → claude → 200K).
 export function contextLimit(model: string | undefined): number {
   if (!model) return DEFAULT_CONTEXT
-  const name = model.replace(/^local:/, '')
+  const name = model.replace(/^(local|google|deepinfra|openai|together|mimo|kilo):/, '')
   for (const { pattern, context } of TABLE) if (pattern.test(name)) return context
   return DEFAULT_CONTEXT
 }
+
+// Curated local models surfaced as ready-to-pick options in the model dropdown, in ADDITION to
+// whatever Ollama already has installed (those are auto-listed). Full `local:` ids. Pull it first,
+// e.g. `ollama pull hf.co/JetBrains/Mellum2-12B-A2.5B-Thinking-GGUF-Q4_K_M` (or your own tag named
+// `mellum2`) — JetBrains' Mellum 2 is a 12B MoE "Thinking" code model with a 128K window.
+export const SUGGESTED_LOCAL_MODELS: string[] = ['local:mellum2']
+
+// Curated CLOUD models surfaced as ready-to-pick options in the model dropdown (the matching
+// provider key must be set in Settings). Always visible, regardless of the user's saved
+// extraModels list — so a freshly added model shows up without editing settings by hand.
+export const SUGGESTED_MODELS: string[] = [
+  'deepinfra:zai-org/GLM-5.2', // Z.ai GLM-5.2 — 1M context, agentic/coding flagship (via DeepInfra)
+  'deepinfra:google/gemma-4-31B-it', // Google Gemma 4 31B — dense, 256K context, multimodal
+  'mimo:mimo-v2.5-pro', // Xiaomi MiMo (token plan)
+  'kilo:kilo/auto' // Kilo Code gateway — smart routing
+]

@@ -11,7 +11,9 @@
 ![Tests](https://img.shields.io/badge/tests-394%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
-![Visual workflow builder](docs/screenshots/11-workflow-builder.png)
+![DeepCode — feature tour](docs/tour.gif)
+
+<sub>A quick tour: visual workflow builder · Mission Control · Swarm · Time Machine · run traces · cost dashboard · MCP marketplace.</sub>
 
 ---
 
@@ -42,9 +44,11 @@ A solo-built, end-to-end product that goes well beyond a chat wrapper — the ha
 | 🛒 **Marketplace** | Curated **31-connector** MCP catalog, searchable, one-click activate; plus install plugins/skills from a git repo. |
 | 🧩 **Extensible** | File-based Skills, Sub-agents, Hooks, Plugins, Slash commands, semantic project-scoped Memory, scheduled Automations. |
 
-| Mission Control | MCP Marketplace |
+| Visual workflow builder | Mission Control |
 | --- | --- |
-| ![Mission Control](docs/screenshots/02-mission-control.png) | ![Marketplace](docs/screenshots/04-marketplace.png) |
+| ![Workflow builder](docs/screenshots/11-workflow-builder.png) | ![Mission Control](docs/screenshots/02-mission-control.png) |
+| **MCP marketplace** | **Run traces (observability)** |
+| ![Marketplace](docs/screenshots/04-marketplace.png) | ![Run traces](docs/screenshots/03-traces.png) |
 
 ---
 

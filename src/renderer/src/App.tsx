@@ -15,7 +15,7 @@ import { Composer } from './components/Composer'
 import { MessageView } from './components/MessageView'
 import { ProjectsPanel } from './components/ProjectsPanel'
 import { Welcome, TodoStrip, ContextPill, WorkingIndicator, basename, relTime } from './components/ChatExtras'
-import { contextLimit } from '../../shared/models'
+import { contextLimit, SUGGESTED_LOCAL_MODELS, SUGGESTED_MODELS } from '../../shared/models'
 import { FirstRunModal } from './components/FirstRunModal'
 import { Sidebar, NAV } from './components/Sidebar'
 import { CommandPalette, PaletteItem } from './components/CommandPalette'
@@ -1274,6 +1274,8 @@ export function App(): JSX.Element {
                     settings.provider.reasonerModel,
                     session.model || settings.provider.model,
                     ...(settings.provider.extraModels ?? []),
+                    ...SUGGESTED_MODELS,
+                    ...SUGGESTED_LOCAL_MODELS,
                     ...localModels.map((m) => 'local:' + m)
                   ])
                 ).map((m) => (
@@ -1284,7 +1286,11 @@ export function App(): JSX.Element {
                         ? '☁️ ' + m.slice('deepinfra:'.length)
                         : m.startsWith('together:')
                           ? '🧩 ' + m.slice('together:'.length)
-                          : m}
+                          : m.startsWith('mimo:')
+                            ? '📱 ' + m.slice('mimo:'.length)
+                            : m.startsWith('kilo:')
+                              ? '🦘 ' + m.slice('kilo:'.length)
+                              : m}
                   </option>
                 ))}
               </select>

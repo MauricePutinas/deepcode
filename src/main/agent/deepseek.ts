@@ -103,6 +103,8 @@ export class DeepSeekClient {
     const isDeepinfra = rawModel.startsWith('deepinfra:')
     const isOpenai = rawModel.startsWith('openai:') // OpenAI-compatible (api.openai.com)
     const isTogether = rawModel.startsWith('together:') // Together AI (OpenAI-compatible)
+    const isMimo = rawModel.startsWith('mimo:') // Xiaomi MiMo (OpenAI-compatible)
+    const isKilo = rawModel.startsWith('kilo:') // Kilo Code gateway (OpenAI-compatible)
     const prefix = isLocal
       ? 'local:'
       : isGoogle
@@ -113,7 +115,11 @@ export class DeepSeekClient {
             ? 'openai:'
             : isTogether
               ? 'together:'
-              : ''
+              : isMimo
+                ? 'mimo:'
+                : isKilo
+                  ? 'kilo:'
+                  : ''
     const model = prefix ? rawModel.slice(prefix.length) : rawModel
     const base = isLocal
       ? this.settings.localBaseUrl || 'http://localhost:11434/v1'
@@ -125,7 +131,11 @@ export class DeepSeekClient {
             ? this.settings.openaiBaseUrl || 'https://api.openai.com/v1'
             : isTogether
               ? this.settings.togetherBaseUrl || 'https://api.together.xyz/v1'
-              : this.settings.baseUrl
+              : isMimo
+                ? this.settings.mimoBaseUrl || 'https://token-plan-ams.xiaomimimo.com/v1'
+                : isKilo
+                  ? this.settings.kiloBaseUrl || 'https://api.kilo.ai/api/gateway'
+                  : this.settings.baseUrl
     const apiKey = isGoogle
       ? this.settings.googleApiKey
       : isDeepinfra
@@ -134,7 +144,11 @@ export class DeepSeekClient {
           ? this.settings.openaiApiKey
           : isTogether
             ? this.settings.togetherApiKey
-            : this.settings.apiKey
+            : isMimo
+              ? this.settings.mimoApiKey
+              : isKilo
+                ? this.settings.kiloApiKey
+                : this.settings.apiKey
 
     if (isGoogle && (!this.settings.googleApiKey || !this.settings.googleApiKey.trim())) {
       throw new Error('Kein Google-AI-Studio-Key konfiguriert. Trage ihn in den Settings ein (für Bild-Analyse online).')
@@ -148,7 +162,13 @@ export class DeepSeekClient {
     if (isTogether && (!this.settings.togetherApiKey || !this.settings.togetherApiKey.trim())) {
       throw new Error('Kein Together-AI-API-Key konfiguriert. Trage ihn in den Settings ein.')
     }
-    if (!isLocal && !isGoogle && !isDeepinfra && !isOpenai && !isTogether && (!this.settings.apiKey || !this.settings.apiKey.trim())) {
+    if (isMimo && (!this.settings.mimoApiKey || !this.settings.mimoApiKey.trim())) {
+      throw new Error('Kein Xiaomi-MiMo-API-Key konfiguriert. Trage ihn in den Settings ein.')
+    }
+    if (isKilo && (!this.settings.kiloApiKey || !this.settings.kiloApiKey.trim())) {
+      throw new Error('Kein Kilo-Code-API-Key konfiguriert. Trage ihn in den Settings ein (app.kilo.ai → API Keys).')
+    }
+    if (!isLocal && !isGoogle && !isDeepinfra && !isOpenai && !isTogether && !isMimo && !isKilo && (!this.settings.apiKey || !this.settings.apiKey.trim())) {
       throw new Error('DeepSeek API key is not configured. Add it in Settings.')
     }
 

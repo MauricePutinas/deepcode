@@ -11,7 +11,9 @@
 ![Tests](https://img.shields.io/badge/tests-394%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
-![Visueller Workflow-Builder](docs/screenshots/11-workflow-builder.png)
+![DeepCode — Feature-Tour](docs/tour.gif)
+
+<sub>Kurze Tour: visueller Workflow-Builder · Mission Control · Swarm · Zeitmaschine · Run-Traces · Kosten-Dashboard · MCP-Marketplace.</sub>
 
 ---
 
@@ -42,9 +44,11 @@ Ein im Alleingang gebautes End-to-End-Produkt, das weit über einen Chat-Wrapper
 | 🛒 **Marketplace** | Kuratierter **31-Connector**-MCP-Katalog, durchsuchbar, 1-Klick-Aktivierung; plus Plugins/Skills aus einem Git-Repo installieren. |
 | 🧩 **Erweiterbar** | Datei-basierte Skills, Subagents, Hooks, Plugins, Slash-Commands, semantisches projekt-bezogenes Memory, geplante Automationen. |
 
-| Mission Control | MCP-Marketplace |
+| Visueller Workflow-Builder | Mission Control |
 | --- | --- |
-| ![Mission Control](docs/screenshots/02-mission-control.png) | ![Marketplace](docs/screenshots/04-marketplace.png) |
+| ![Workflow-Builder](docs/screenshots/11-workflow-builder.png) | ![Mission Control](docs/screenshots/02-mission-control.png) |
+| **MCP-Marketplace** | **Run-Traces (Observability)** |
+| ![Marketplace](docs/screenshots/04-marketplace.png) | ![Run-Traces](docs/screenshots/03-traces.png) |
 
 ---
 

@@ -2,8 +2,10 @@
 // interactive mode, and drives the approval card → observes the tool run + answer.
 // Exercises the full UI loop: stream → tool_pending → approve → tool_result → done.
 import { _electron } from 'playwright'
+import { tmpdir } from 'os'
+import { join } from 'path'
 
-const OUT = process.env.SHOT_DIR || 'C:/Users/Maurice/AppData/Local/Temp/dc-approval'
+const OUT = process.env.SHOT_DIR || join(tmpdir(), 'dc-approval')
 const consoleErrors = []
 const pageErrors = []
 const app = await _electron.launch({ args: ['out/main/index.js'] })

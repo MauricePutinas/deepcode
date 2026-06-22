@@ -3,8 +3,10 @@
 //   node scripts/ui-smoke.mjs
 // Exits non-zero if any uncaught page error occurred.
 import { _electron } from 'playwright'
+import { tmpdir } from 'os'
+import { join } from 'path'
 
-const OUT = process.env.SHOT_DIR || 'C:/Users/Maurice/AppData/Local/Temp/dc-uismoke'
+const OUT = process.env.SHOT_DIR || join(tmpdir(), 'dc-uismoke')
 const consoleErrors = []
 const pageErrors = []
 const failures = []
