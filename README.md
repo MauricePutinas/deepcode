@@ -8,7 +8,7 @@
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-443%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-448%20passing-brightgreen)
 ![CI](https://img.shields.io/badge/CI-typecheck%20·%20lint%20·%20test%20·%20build%20·%20ui--smoke-blue)
 
 ![DeepCode — feature tour](docs/tour.gif)
@@ -103,6 +103,7 @@ Personal project, actively developed. The model id and base URL are configurable
 
 ## Changelog
 
+- **v0.2.87** — **Tidy model picker.** The model dropdown now shows curated, ordered display names (e.g. "DI GLM 5.2", "OR Grok 4.3", "Lokal Qwen 2.5 uncensored") instead of raw slugs, disambiguating the same model across providers. Display-only — the stored model id is unchanged.
 - **v0.2.86** — **Clearer transcript.** The automatic self-review / verify / compaction messages the agent generates are now shown as muted, labelled automatic notes instead of looking like the user's own message (still sent to the model). Added a timestamp under every message, and fixed a false "model may be hung" warning while tool-heavy models stream their tool-call arguments.
 - **v0.2.85** — **Flagship models via OpenRouter.** Added Grok 4.3, MiniMax M3 and Kimi K2.7 Code as ready-picks — each verified against the live OpenRouter API (exact slug, context window, price, native tool-calling).
 - **v0.2.84** — **OpenRouter cost accuracy + model lineup.** Per-model fallback rates for every OpenRouter pick so a turn never shows a wrong $0 when the provider's live cost is absent, and `:free` routes are honored as truly free. Added Gemini 2.5 Flash-Lite as a ready-pick; routed MiMo exclusively through the cheaper OpenRouter path.
